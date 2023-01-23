@@ -45,7 +45,7 @@ var interval=setInterval(() =>{
 
 if(timeleft==0){
 clearInterval(interval)
-for (let index = 0; index < 10; index++) {
+for (let index = 0; index < this.exam.questions.length; index++) {
   if((this.form as unknown as NgForm).form.value[index]==this.exam.questions[index].correctAnswer){
   this.degree++;
   }
@@ -54,7 +54,7 @@ var userex:userExam={
   "appUserID":sessionStorage.getItem("userKey") ||"0",
   "examID":this.exam.id,
   "degree":this.degree*this.questiondegree,
-  "duration":"10"
+  "duration":this.exam.duration.toString()
 }
 this.y=this.userexamServices.Add(userex).subscribe(e=>{
   if(e.statusCode==200){
@@ -86,7 +86,7 @@ this.seconds="0"+this.seconds
 
 
 check(form:NgForm){
-for (let index = 0; index < 10; index++) {
+for (let index = 0; index < this.exam.questions.length; index++) {
 if(form.value[index]==this.exam.questions[index].correctAnswer){
 this.degree++;
 }
