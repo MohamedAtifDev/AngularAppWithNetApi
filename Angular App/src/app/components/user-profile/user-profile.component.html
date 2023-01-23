@@ -1,0 +1,51 @@
+<div class="container">
+    <h1 class="text-danger">Profile info</h1>
+
+
+    <div class="profile-image mx-auto mb-3" id="profile-image" [style.backgroundColor]="color">{{user.userName.toString().slice(0,2)}}</div>
+    <table class="table table-hover table-bordered table-striped  mx-auto">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>{{user.id}}</th>
+
+
+            </tr>
+            <tr>
+                <th>Email</th>
+                <th>{{user.email}}</th>
+
+
+
+            </tr>
+            <tr>
+                <th>User Name</th>
+                <th>{{user.userName}}</th>
+
+
+
+            </tr>
+        </thead>
+
+    </table>
+    <div *ngIf="userexams.length >0">
+        <h2 class="text-danger">Your submissinons</h2>
+        <table class="table table-hover table-bordered table-striped  mx-auto">
+            <thead>
+                <tr>
+                    <th>Exam</th>
+                    <th>Degree</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of userexams">
+                    <td>{{e.exam?.name}}</td>
+                    <td>{{e.degree}}/{{e.exam?.finalDegree}}</td>
+                    <td>{{e.duration}}/{{e.exam?.duration}} minutes</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

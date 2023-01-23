@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback');
+@import url('../../../../node_modules/plugins/fontawesome-free/css/all.css');
+@import url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+@import url('../../../../node_modules/plugins/icheck-bootstrap/icheck-bootstrap.css');
+@import url('../../../../node_modules/plugins/jqvmap/jqvmap.css');
+@import url('../../../../node_modules/adminlte.css');
+@import url('../../../../node_modules/plugins/overlayScrollbars/css/OverlayScrollbars.css');
+@import url('../../../../node_modules/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.css');
+@import url('../../../../node_modules/plugins/daterangepicker/daterangepicker.css');
+@import url('../../../../node_modules/plugins/summernote/summernote-bs4.css');
+h1 {
+    color: red;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 8px;
+}
+
+.card {
+    border-radius: 15px;
+    ;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0px 1px 3px 3px rgba(28, 76, 239, 0.83);
+}
+
+.card-text {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.card-text.description {
+    text-align: center;
+}
+
+a.btn {
+    margin: 0 5px;
+    white-space: nowrap;
+}
+
+.card .card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card .test-card {
+    margin-bottom: 40px;
+}
+
+.card {
+    overflow: hidden;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1, 1);
+}
+
+p.my-0 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@media screen and (max-width:768px) {
+    .test-card {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .test-card {
+        max-width: 90%;
+    }
+    .card-text {
+        font-weight: bold;
+        white-space: normal;
+    }
+}

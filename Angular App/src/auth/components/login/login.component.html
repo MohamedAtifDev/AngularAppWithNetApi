@@ -1,0 +1,64 @@
+<body class="hold-transition login-page" style="margin-top: -40px;">
+    <div class="login-box">
+        <!-- /.login-logo -->
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+            </div>
+            <div class="card-body">
+                <p class="login-box-msg">Sign in to start your Exam</p>
+                <div class="text-danger font-weight-bold">{{errormessage}}</div>
+                <form method="post" #form="ngForm" (ngSubmit)="Login(form)">
+
+                    <div class="input-group mb-2 " [class.invalid]="username.touched && username.errors?.['required']">
+                        <input type="text" class="form-control" placeholder="username" required name="username" ngModel #username="ngModel">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-users"></span>
+                            </div>
+                        </div>
+                        <br>
+
+                    </div>
+                    <div class="text-danger font-weight-bold  mb-2" *ngIf="username.touched && username.errors?.['required']">
+                        <Span> Username is required</Span>
+
+                    </div>
+
+                    <div class="input-group mb-2" [class.invalid]="password.touched && password.errors?.['required']">
+                        <input type="password" class="form-control" placeholder="Password" required name="password" ngModel #password="ngModel">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="text-danger font-weight-bold mb-2 " *ngIf="password.touched&& password.errors?.['required'] ">
+                        <Span> password is required</Span>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="remember" class="form-control" name="remember" ngModel #remember="ngModel" (change)="check($event)">
+                                <label for="remember">
+                    Remember Me
+                  </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+                <p class="mb-0">
+                    <a routerLink="/auth/register" class="text-center">Register a new membership</a>
+                </p>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
