@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XVms5iHww9VsNW1Hyvl54wGsyWoo4Vxi6Nu/Xk3hH6gXjlITgk8IxikhXw7vYUl7taqw7RRIzFPuO4QUL6MCWQ==",
+  "dgSpecHash": "kDZQN2OGuw/CdI39NOtTr+92kZhQGmrQs8japAVrQGKqAyutVYD1S0qvGXsf6ujw2loadiJk+jHp4Qoqg5ts7w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\EL-Masria\\source\\repos\\OnlineExamAPI\\OnlineExamAPI\\OnlineExamAPI.csproj",
+  "projectFilePath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\AngularAppWithNetApi\\API\\OnlineExamAPI\\OnlineExamAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EL-Masria\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\EL-Masria\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
