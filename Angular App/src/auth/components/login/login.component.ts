@@ -2,7 +2,7 @@ import { formatCurrency } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { subscribeOn, Subscription } from 'rxjs';
 import { IdentityAPIService } from 'src/app/services/identity-api.service';
 import { signin } from 'src/Models/Signin';
 
@@ -15,7 +15,7 @@ import { signin } from 'src/Models/Signin';
 export class LoginComponent implements OnDestroy  {
 checked:boolean=false;
 errormessage:string="";
-x!:Subscription
+x:Subscription=new Subscription
   constructor(private identityService:IdentityAPIService,private router:Router, private route: ActivatedRoute) { }
  
 
@@ -56,9 +56,9 @@ this.checked=event.target.checked
   
 }
 ngOnDestroy(): void {
-if(this.x){
+
   this.x.unsubscribe();
-}
+
 }
 
 }

@@ -11,13 +11,21 @@ import { User } from 'src/Models/user';
   providedIn: 'root'
 })
 export class IdentityAPIService {
-state!: BehaviorSubject<boolean>;
+state: BehaviorSubject<boolean>=new BehaviorSubject<boolean>(false);
    headers= new HttpHeaders()
   .set('content-type', 'application/json')
  
   constructor(private http:HttpClient) 
   { 
-this.state=new BehaviorSubject<boolean>(false);
+    if(sessionStorage.getItem("userKey")){
+      this.state.next(true);
+      console.log(sessionStorage.getItem("userKey"));
+      
+    }else{
+      this.state.next(false)
+console.log("bb");
+
+    }
   }
 
  

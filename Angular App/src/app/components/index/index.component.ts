@@ -13,12 +13,12 @@ import { Exam } from 'src/Models/Exam';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent implements OnInit, OnDestroy {
+export class IndexComponent implements  OnDestroy {
 exams!:Exam[];
 status:any;
 ids:number[]=[];
-x!:Subscription;
-y!:Subscription;
+x:Subscription;
+y:Subscription;
 errormessage!:string;
   constructor(private examservices:ExamAPIService,private userexamservice:UserexamApiService,private identityservice:IdentityAPIService,private router:Router,private activatedRoute:ActivatedRoute) 
   
@@ -31,12 +31,15 @@ this.errormessage=e.message
       }
       
       });
+
 this.y=this.identityservice.state.asObservable().subscribe(c=>{
   console.log(c);
   
   if(c){
+
+
     this.userexamservice.getById(sessionStorage.getItem("userKey")||'0').subscribe(e=>{
-      console.log(e.result);
+
      
         for (let index = 0; index <e.result.length; index++) {
      
@@ -54,35 +57,13 @@ console.log(this.ids);
 
 
   }
-  ngOnInit(): void {
-    if(sessionStorage.getItem("userKey")){
-      this.identityservice.state.next(true);
-      this.y=this.identityservice.state.asObservable().subscribe(c=>{
-        console.log(c);
-        
-        if(c){
-          this.userexamservice.getById(sessionStorage.getItem("userKey")||'0').subscribe(e=>{
-            console.log(e.result);
-           
-              for (let index = 0; index <e.result.length; index++) {
-           
-                this.ids.push(e.result[index].examID)
-              }
-            
-          
-          })
-        }else{
-          this.ids=[]
-        }
-      })
-    }
-  }
+  
   ngOnDestroy(): void {
- if(this.y){
+
    this.y.unsubscribe();
- }if(this.x){
+ 
    this.x.unsubscribe();
- }
+ 
   }
 isexist(id:number):boolean{
 

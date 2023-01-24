@@ -14,9 +14,9 @@ export class UserProfileComponent implements OnDestroy  {
 user!:User;
 chars=['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
 color="";
-userexams:userExam[]=[]
-x!:Subscription;
-y!:Subscription;
+userexams:userExam[]=[];
+  x: Subscription = new Subscription;
+y:Subscription = new Subscription;
   constructor(private identityService:IdentityAPIService,private userexamService:UserexamApiService) {
     var id=sessionStorage.getItem("userKey");
     if(id!=null){
@@ -50,11 +50,11 @@ this.color+=char;
      
    }
   ngOnDestroy(): void {
-    if(this.y){
+ 
       this.y.unsubscribe();
-    }if(this.x){
+
       this.x.unsubscribe();
-    }
+    
   }
 
 

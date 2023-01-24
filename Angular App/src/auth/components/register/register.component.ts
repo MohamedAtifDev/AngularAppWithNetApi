@@ -13,7 +13,8 @@ import { signup } from 'src/Models/signup';
 export class RegisterComponent implements OnDestroy {
   errormessage!:string[];
   checked:boolean=false;
-  x!:Subscription;
+  x:Subscription=new Subscription
+
   constructor(private identityServices:IdentityAPIService,private router:Router) { }
 
 register(Form:NgForm){
@@ -44,8 +45,8 @@ check(event:any){
   }
 
   ngOnDestroy(): void {
-    if(this.x){
+
       this.x.unsubscribe();
-    }
+    
   }
 }

@@ -15,8 +15,8 @@ export class ShowtopersComponent implements OnDestroy  {
 examid!:number;
 exam!:Exam;
 results:userExam[]=[];
-x!:Subscription;
-y!:Subscription;
+x:Subscription = new Subscription;
+y:Subscription = new Subscription;
   constructor(private actRoute:ActivatedRoute,private userexamServices:UserexamApiService,private examServices:ExamAPIService) {
 
     this.examid=Number(actRoute.snapshot.paramMap.get("examid"));
@@ -29,15 +29,17 @@ console.log(this.results);
 
     })
    }
-  ngOnDestroy(): void {
-    if(this.x){
-      this.x.unsubscribe();
-    }if(this.y){
-      this.y.unsubscribe();
-    }
+
+   Tracking(index:number,data:userExam){
+    return data.appUserID;
   }
-Tracking(index:number,data:userExam){
-  return data.appUserID;
-}
+  ngOnDestroy(): void {
+    
+      this.x.unsubscribe();
+
+      this.y.unsubscribe();
+    
+  }
+
 
 }
