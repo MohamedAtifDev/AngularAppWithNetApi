@@ -9,6 +9,10 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="../node_modules/plugins/fontawesome-free/css/all.css" type="text/css">
     <style>
+        #examdatatable {
+            transition: all 0.6s ease-in-out;
+        }
+        
         .up {
             position: absolute;
             right: 10px;
@@ -42,11 +46,18 @@
     <button class="up" id="up"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
     <script>
         window.onscroll = function() {
+            var ele = document.getElementById("examdatatable");
+
             if (window.scrollY > 300) {
                 document.getElementById("up").style.display = "block"
+                ele.style.position = "sticky";
+                ele.style.top = 0;
+
+
             } else {
                 document.getElementById("up").style.display = "none"
 
+                ele.style.position = "static"
             }
         }
         document.getElementById("up").onclick = function() {

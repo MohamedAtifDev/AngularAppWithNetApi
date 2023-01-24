@@ -13,7 +13,7 @@ import { Exam } from 'src/Models/Exam';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent implements OnDestroy {
+export class IndexComponent implements OnInit, OnDestroy {
 exams!:Exam[];
 status:any;
 ids:number[]=[];
@@ -50,8 +50,32 @@ this.y=this.identityservice.state.asObservable().subscribe(c=>{
   }
 })
 
+console.log(this.ids);
 
 
+  }
+  ngOnInit(): void {
+    if(sessionStorage.getItem("userKey")){
+      this.identityservice.state.next(true);
+      this.y=this.identityservice.state.asObservable().subscribe(c=>{
+        console.log(c);
+        
+        if(c){
+          this.userexamservice.getById(sessionStorage.getItem("userKey")||'0').subscribe(e=>{
+            console.log(e.result);
+           
+              for (let index = 0; index <e.result.length; index++) {
+           
+                this.ids.push(e.result[index].examID)
+              }
+            
+          
+          })
+        }else{
+          this.ids=[]
+        }
+      })
+    }
   }
   ngOnDestroy(): void {
  if(this.y){
