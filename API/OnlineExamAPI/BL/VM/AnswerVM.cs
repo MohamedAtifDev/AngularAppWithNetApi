@@ -10,8 +10,9 @@ namespace OnlineExamAPI.BL.VM
         [MinLength(1, ErrorMessage = "question description must be equal or greater than 1 letter")]
         public string text { get; set; }
         [Required(ErrorMessage ="question id is required")]
-        [Range(1,100,ErrorMessage = " QuestionID is required")]
+        [Range(1,long.MaxValue,ErrorMessage = " QuestionID is required")]
         
+
         public int questionID { get; set; }
         public Question? Question { get; set; }
     }
