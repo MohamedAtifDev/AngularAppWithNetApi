@@ -1,0 +1,36 @@
+<h2 class="text-center text-danger mb-3">Welcome To {{exam.name}} exam</h2>
+<table class="table table-bordered  table-hover text-center mb-3 " id="examdatatable">
+    <thead>
+        <tr>
+            <th>Time</th>
+            <th>Degree</th>
+            <th>Remaining Time</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{exam.duration}} min</td>
+            <td>{{exam.finalDegree}}</td>
+            <td>{{minutes}}:{{seconds}}</td>
+        </tr>
+    </tbody>
+</table>
+<form #f="ngForm" (ngSubmit)="check(f)">
+
+    <div class="form-group mb-5" *ngFor="let question of exam.questions;let i=index;trackBy:TrackingQuestions">
+        <label>Q{{i+1}}: {{question.text}}</label>
+        <div *ngFor="let answer of question.answers;trackBy:TrackingAnswers">
+            <input type="radio" name={{i}} required value={{answer.text}} ngModel #{{i}}="ngModel"> {{answer.text}}
+
+        </div>
+
+
+    </div>
+
+    <div class="form-group  ">
+        <div class="text-center">
+            <button type="submit" id="subbutton" [disabled]="!f.valid" class="btn btn-primary"> Submit</button>
+        </div>
+    </div>
+</form>

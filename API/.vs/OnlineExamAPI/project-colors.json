@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c1af9e3f-02ee-42cf-a17f-de1130f583db": {
+      "ProjectGuid": "c1af9e3f-02ee-42cf-a17f-de1130f583db",
+      "DisplayName": "OnlineExamAPI",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

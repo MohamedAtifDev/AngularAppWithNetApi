@@ -1,0 +1,90 @@
+<body class="hold-transition register-page" style="margin-top: -40px;">
+    <div class="register-box">
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+            </div>
+            <div class="card-body">
+                <p class="login-box-msg">Register a new membership</p>
+                <div class="text-danger font-weight-bold">
+                    <ul>
+                        <li *ngFor=" let message of errormessage ">{{message}}</li>
+                    </ul>
+                </div>
+
+                <form #form="ngForm" (ngSubmit)="register(form)">
+
+                    <div class="input-group mb-2 " [class.invalid]="username.touched && username.errors?.['required']">
+                        <input type="text" class="form-control" placeholder="username" required name="username" ngModel #username="ngModel">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                        <br>
+
+                    </div>
+                    <div class="text-danger font-weight-bold  mb-2" *ngIf="username.touched && username.errors?.['required']">
+                        <Span> Username is required</Span>
+
+                    </div>
+                    <div class="input-group mb-2 " [class.invalid]="email.touched && email.errors?.['required']">
+                        <input type="email" class="form-control" placeholder="Email" required name="email" ngModel #email="ngModel">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-danger font-weight-bold  mb-2" *ngIf="email.touched && email.errors?.['required']">
+                        <Span> Email is required</Span>
+
+                    </div>
+                    <div class="input-group mb-2 " [class.invalid]="password.touched && password.errors?.['required']">
+                        <input type="password" class="form-control" placeholder="password" required name="password" ngModel #password="ngModel">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-danger font-weight-bold  mb-2" *ngIf="password.touched && password.errors?.['required']">
+                        <Span> Password is required</Span>
+
+                    </div>
+                    <div class="input-group mb-2 " [class.invalid]="conpassword.touched && conpassword.errors?.['required']">
+                        <input type="password" class="form-control" placeholder="Retype password" required name="conpassword" ngModel #conpassword="ngModel">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-danger font-weight-bold  mb-2" *ngIf="conpassword.touched && conpassword.errors?.['required']">
+                        <Span> please retype Password</Span>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="agreeTerms" name="terms" value="agree" ngModel #terms="ngModel" (change)="check($event)">
+                                <label for="agreeTerms">
+                   I agree to the <a href="#">terms</a>
+                  </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" [disabled]="!form.valid || !checked" class="btn btn-primary btn-block">Register</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+                <a routerLink="/auth/login" class="text-center">I already have a membership</a>
+            </div>
+            <!-- /.form-box -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.register-box -->

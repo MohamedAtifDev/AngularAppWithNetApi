@@ -1,0 +1,20 @@
+<h1 class="text-center mt-2 mb-2 text-danger">Top Students in {{exam.name}} Exam</h1>
+
+<table class="table table-bordered table-striped table-hover text-center mx-auto table-responsive-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>UserName</th>
+            <th>Email</th>
+            <th>Degree</th>
+            <th>Duration</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of results;trackBy:Tracking">
+            <td>{{e.user?.userName}}</td>
+            <td>{{e.user?.email}}</td>
+            <td>{{e.degree}} / {{exam.finalDegree}}</td>
+            <td>{{e.duration}} / {{exam.duration}} min</td>
+        </tr>
+    </tbody>
+</table>
